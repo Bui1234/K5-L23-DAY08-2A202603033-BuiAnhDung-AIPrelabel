@@ -10,12 +10,6 @@
 
 Đối chứng `r01`: YOLO11n tạo 163 box/8 ảnh Pilot, 1.23 giây/ảnh. `r03`: YOLO26n tại confidence 0.50 còn 81 box/8 ảnh, 0.83 giây/ảnh, nguy cơ bỏ sót tăng. Vì vậy lựa chọn YOLO26n confidence 0.25 (`r02`) cho Batch, thay vì 0.50. Bài thực nghiệm không có kết quả chạy YOLOE-26; YOLO11n được sử dụng làm đối chứng.
 
-Lệnh merge pre-label đã dùng:
-
-```powershell
-.\.venv\Scripts\python.exe scripts\merge_prelabels.py work/prelabel/y26_gold/pre.coco.json work/prelabel/y26_batch/pre.coco.json --conf 0.25 --iou 0.6 --split "batch,gold" --out work/prelabel/merged_review/pre.coco.json
-```
-
 Lệnh trên gộp hai tập dự đoán YOLO26n, **không phải phép ensemble hai model khác nhau**. Kết quả gộp 422 box trên Batch và Gold. Ngưỡng `car=0.15` được đề xuất sau đó từ quét Gold nhưng chưa được áp dụng lại vào lô đã duyệt.
 
 SAM chọn: **SAM 2.1 Tiny**, checkpoint `models/sam2.1_t.pt`, chạy CPU. Ở `r04`, YOLO26n + SAM 2.1 Tiny tạo 8 mask từ 8 box trên 2 ảnh (`img_004.jpg`, `img_013.jpg`), trung bình 6.63 giây/ảnh. SAM phụ thuộc box/điểm gợi ý nên không tự khắc phục trường hợp YOLO bỏ sót tuk-tuk; cần thêm điểm hoặc box thủ công.
@@ -73,6 +67,6 @@ Cận trên Wilson 95% của tỉ lệ ảnh lỗi được script báo là **10
 
 ## 8. Ghi chú cá nhân
 
-Trong quá trình làm bài, em có sử dụng ChatGPT để hỗ trợ đọc hướng dẫn, phân tích lỗi và viết báo cáo. Các bước chạy mô hình, gán nhãn và kiểm tra QC đều do tôi thực hiện.
-Em sử dụng máy Windows, CPU Ryzen 5 5500U, không có GPU CUDA nên chạy SAM khá chậm. Khó khăn lớn nhất là mô hình bỏ sót xe ba bánh và một số bounding box chưa chính xác.
-Qua bài này, tôi nhận thấy AI giúp tiết kiệm thời gian nhưng vẫn cần kiểm tra thủ công. Lần sau, em sẽ chú ý hơn đến các lớp khó và thực hiện QC sớm để hạn chế lỗi trước khi nộp.
+- Trong quá trình làm bài, em có sử dụng ChatGPT để hỗ trợ đọc hướng dẫn, phân tích lỗi và viết báo cáo. Các bước chạy mô hình, gán nhãn và kiểm tra QC đều do tôi thực hiện.
+- Em sử dụng máy Windows, CPU Ryzen 5 5500U, không có GPU CUDA nên chạy SAM khá chậm. Khó khăn lớn nhất là mô hình bỏ sót xe ba bánh và một số bounding box chưa chính xác.
+- Qua bài này, tôi nhận thấy AI giúp tiết kiệm thời gian nhưng vẫn cần kiểm tra thủ công. Lần sau, em sẽ chú ý hơn đến các lớp khó và thực hiện QC sớm để hạn chế lỗi trước khi nộp.
