@@ -1,0 +1,14 @@
+work/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+models/*
+!models/.gitkeep
+*.pt
+*.pth
+*.onnx
+_review/
+*.ts
+
+data/cache/
