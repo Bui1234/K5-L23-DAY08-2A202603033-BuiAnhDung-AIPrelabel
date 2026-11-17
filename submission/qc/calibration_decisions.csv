@@ -1,0 +1,4 @@
+﻿"case_id","image","nguon","van_de","quyet_dinh","quy_tac_ghi_vao_guideline","phien_ban_guideline"
+"CAL-01","img_004|img_013","loi_may","YOLO26n nhan dien kem xe ba banh co mui; recall three_wheeler tren Gold la 0/7","Gan three_wheeler thay vi car khi xac dinh duoc cau truc xe ba banh","Muc 2: xe ba banh co mui van la three_wheeler; kiem tra thu cong neu model nham car","v1.1"
+"CAL-02","img_003","cau_hoi_mo","Cau hoi mo so 3: hang hoa nho ra khoi xe co thuoc bounding box cua xe khong","Box xe khong tu dong bao gom hang hoa nho ra; chi bao phan xe thuoc doi tuong","Muc 3: phan biet than xe va hang hoa; khong mo rong box theo hang cho","v1.1"
+"CAL-03","img_006|img_031","loi_may","QC phat hien box xe dap sai vi tri hoac kich thuoc; co nguy co bao ca nen va hang hoa","Chinh box om sat doi tuong xe; khong bao qua nhieu nen hoac hang hoa khong thuoc xe","Muc 3: box can om sat doi tuong va duoc kiem tra bang mat sau prelabel","v1.1"
